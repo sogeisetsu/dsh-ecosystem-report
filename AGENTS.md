@@ -83,6 +83,7 @@ cp ../report.html ../../deepseek-harness-npm-report.html
 - `<section class="sec">` = 6，nav 链接 = 6，卡片 `<h2>` 数不变（当前 14）。
 - 社区包精选 = 68 行；`#sceneSel` 选项 = 13（11 组 + 其他 + 全部）。
 - headless Chrome 探针：1280 / 768 / 520 三档 `documentElement.scrollWidth == clientWidth`；筛选后可见行数与计数一致；暗色下文字可读。
+- **移动端（<500px）必须用 iframe 模拟**：headless 的 `--window-size` 最小 500，直接传 375 会被抬宽，得出「无溢出」的假象。做法：外层 500 宽窗口 + `iframe{width:375px}`，配合 `--allow-file-access-from-files` 读 `contentDocument.documentElement.scrollWidth`。
 
 ### 8.1 探针模板
 
