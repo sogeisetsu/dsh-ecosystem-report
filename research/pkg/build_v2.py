@@ -213,8 +213,8 @@ RES = [
   '外部选型清单', 'VSCode 风格独立文件管理器，提供 <code>file_*</code> 模型工具；npm 元数据无 repository 字段，GitHub 仓库未定位。', ''),
  (4, 'dsh-memory-fortress', 'Memory Fortress', 'linshuangb347/dsh-memory-fortress', '记忆', '1.0.0 · 09-08', '2 ★', 243, '243',
   '外部选型清单', 'DSH 原生侧功能较完整的记忆方案：分层记忆 + 知识图谱。', ''),
- (4, 'dsh-automation', 'DSH Automation', 'cofy-x/dsh-automation', '定时与任务调度', '0.2.0-alpha.0 · 09-06', '0 ★', 88, '88',
-  '外部选型清单', '独立运行完整编码任务：每次触发在全新 root Agent + Session 中执行，带权限边界与可审计运行历史；同名实现另有 titanwings（104★）、MichengAI（40★）。', ''),
+ (4, '@michengai/dsh-automation', 'DSH Automation（MichengAI）', 'MichengAI/dsh-automation', '定时与任务调度', '1.0.20 · 11-07', '40 ★', 19640, '19,640',
+  '外部选型清单', '独立运行完整编码任务：每次触发在全新 root Agent + Session 中执行，带权限边界与可审计运行历史；另有 titanwings（104★）、cofy-x（0★）同名实现。', ''),
  (3, 'dsh-schedule-tasks', 'Schedule Tasks', 'uluckystar/dsh-schedule-tasks', '定时与任务调度', '—', '2 ★', 0, '—',
   '外部选型清单', '标准 5 段式 cron + shell / 通知触发 + Web 侧边栏，不涉及 Agent 会话编排；npm 未见同名包。', ''),
  (4, 'dsh-search-router', 'Search Router', 'XGrin/dsh-search-router', '搜索与上下文', '—', '2 ★', 0, '—',
@@ -255,6 +255,12 @@ RES = [
   '外部选型清单', '社区 bundle，含 <code>dsh-mcp-manager</code>、<code>dsh-skills-manager</code>、<code>dsh-memery</code> 等 7 个插件；与 SQY bundle 功能重叠但维护者不同。', ''),
  (2, '@sophiadata-ai/dsh-mcp-skill-manager', 'MCP & Skill Manager（SophiaData）', 'gtk96/dsh-mcp-skill-manager', '管理', '0.10.1 · 11-06', '0 ★', 431, '431',
   '外部选型清单', 'MCP + 技能二合一管理，与 SQY bundle 无归属关系，按包名区分。', ''),
+ (3, '@sheep233_/dsh-web-search-free', 'Web Search Free（sheep233_）', 'sheep-programmer/dsh-web-search-free', '搜索与上下文', '0.3.1 · 08-29', '11 ★', 141, '141',
+  '外部选型清单', '注册 Parallel + Exa 双免费后端，匿名免 Key，可一键切回官方付费搜索；接管内置 <code>web_search</code>。', ''),
+ (3, '@js2hou/dsh-mcp-manager', 'MCP Manager（js2hou）', 'js2hou/dsh-mcp-manager', 'MCP 服务器管理', '0.1.6 · 10-18', '26 ★', 295, '295',
+  '外部选型清单', 'MCP 可视化管理：查看已装 / 已启用服务器，设置页启停与编辑；与 <code>@guowenzhang</code>、<code>nekojackie</code> 版同名不同实现。', ''),
+ (2, '@yilinxiao/dsh-mcp-lazy', 'MCP Lazy（yilinxiao）', 'leaforbook/dsh-mcp-lazy', 'MCP 工具的渐进披露', '0.5.1 · 08-20', '7 ★', 245, '245',
+  '外部选型清单', 'MCP 懒加载 + 动态工具加载 + Tool Router；server 仅在被用到时连接，空闲自动断开，工具列表缓存磁盘。', ''),
 ]
 
 RES.sort(key=lambda r: (-r[0], -r[7]))
@@ -320,7 +326,7 @@ SCENE_MAP = {
     'dsh-folderead': '文件与系统操作',
     '@daxu8972/dsh-file-manager': '文件与系统操作',
     'dsh-memory-fortress': '记忆与知识沉淀',
-    'dsh-automation': '定时与任务调度',
+    '@michengai/dsh-automation': '定时与任务调度',
     'dsh-schedule-tasks': '定时与任务调度',
     'dsh-search-router': '搜索与上下文',
     '@liustack/modsearch': '搜索与上下文',
@@ -341,6 +347,9 @@ SCENE_MAP = {
     'dsh-plugin-hub': '插件市场与插件管理',
     '@zfdx123/dsh-atelier': '插件市场与插件管理',
     '@sophiadata-ai/dsh-mcp-skill-manager': 'MCP 服务器管理',
+    '@sheep233_/dsh-web-search-free': '搜索与上下文',
+    '@js2hou/dsh-mcp-manager': 'MCP 服务器管理',
+    '@yilinxiao/dsh-mcp-lazy': 'MCP 工具的渐进披露',
 }
 
 scene_counts = {}
@@ -1219,7 +1228,7 @@ HTML = f'''<!doctype html>
   <p class="sec-d">按当前状态与能力缺口分层，官方包与社区包分列。</p>
   <div class="card">
     <h2>建议的形成方式</h2>
-    <p class="lead2">排序依据三项：<b>当前状态成本</b>（已加载的最省事）、<b>能力缺口</b>（官方尚未覆盖的部分）、<b>维护风险</b>（官方包有兼容承诺，社区包没有）。</p>
+    <p class="lead2">排序依据三项：<b>当前状态成本</b>（已加载的最省事）、<b>能力缺口</b>（官方尚未覆盖的部分）、<b>维护风险</b>（官方包有兼容承诺，社区包没有）。<b>原生短板集中在四处</b>：跨会话记忆缺失、无自动备份、搜索仅内置按量计费的 DeepSeek Search API、无插件市场与渐进披露。<b>选型原则</b>：要功能完整看「推荐」列，只解单点问题走「轻量」列，负担与冲突面更小。</p>
     <div class="note info" style="margin-top:12px">
       <b>按状态编号，可执行动作只有四类：</b><br>
       · <b>1a / 1b / 1c</b> → 已在加载，无需操作；<br>
@@ -1242,6 +1251,15 @@ HTML = f'''<!doctype html>
       <li>外部工具接入：配置 <code>dsh-mcp-client</code>，挂载 MCP 服务端。</li>
       <li>跨 Agent 协作：安装 <code>dsh-subagent-claude-code</code> 或 <code>dsh-subagent-codex</code>（官方按需包）。</li>
     </ol>
+    <div class="note info" style="margin-top:12px">
+      <b>社区安装组合</b>（三种起步路线）：
+      <ul class="lead2" style="margin:6px 0 0">
+        <li><b>极简起步（只补硬伤）</b>：<code>dsh-better-sidebar</code> + <code>dsh-simple-memory</code> + <code>cc-safety-net</code> + <code>@wildusk/dsh-backup</code>。</li>
+        <li><b>搜索零成本</b>：在极简起步上把搜索换成 <code>@liustack/modsearch</code>，或 <code>@sheep233_/dsh-web-search-free</code>（Parallel + Exa 双免费后端）。</li>
+        <li><b>全面托管</b>：SQY-DSH-PLUGIN 四件套 + <code>dshmarket</code> + <code>EverOS</code> + <code>@michengai/dsh-automation</code>。</li>
+        <li><b>避免踩坑</b>：不装重复的「插件管理插件」；记忆管理只在需要跨后端统一视图时装；MCP 工具少于 10 个时不上渐进披露。</li>
+      </ul>
+    </div>
   </div>
 
   <h2 class="sec">二、社区包补充建议</h2>
