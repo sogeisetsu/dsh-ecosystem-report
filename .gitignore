@@ -1,0 +1,35 @@
+# 客户端数据（绝不提交）
+.workbuddy/
+
+# 构建产物：由 research/pkg/build_v2.py 生成
+research/report.html
+
+# 验收截图：报告是纯文本 HTML，不含图片
+**/*.png
+**/*.jpg
+**/*.jpeg
+
+# npm 原始 packument（约 17 MB，需要时按 README 重新抓取）
+research/meta/
+
+# 解包后的第三方包副本
+research/pkg/dsh-*/
+research/pkg/package/
+research/pkg/*/package/
+
+# 原始 tarball
+**/*.tgz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# 一次性补丁脚本
+research/pkg/_*.py
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

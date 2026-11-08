@@ -1,0 +1,156 @@
+[
+ [
+  "dsh-composer-enhance",
+  "ERR <urlopen error [SSL: UNEXPECTED_EOF_WHIL",
+  "",
+  "",
+  ""
+ ],
+ [
+  "dsh-composer-enhancer",
+  "0.1.8",
+  "2026-11-04",
+  "Deprecated: renamed to dsh-agent-enhancer. Install dsh-agent-enhancer ",
+  ""
+ ],
+ [
+  "dsh-agent-enhancer",
+  "0.3.6",
+  "2026-11-07",
+  "[English](./README.en.md) | 简体中文",
+  "git+https://github.com/rebornace/dsh-agent-enhancer.git"
+ ],
+ [
+  "dsh-context",
+  "0.82.2",
+  "2026-11-07",
+  "A DeepSeek Harness plugin for context insight and management, with con",
+  "git+https://github.com/bowenliang123/dsh-context.git"
+ ],
+ [
+  "dsh-better-sidebar",
+  "0.30.1",
+  "2026-11-05",
+  "Better Sidebar for DSH — file tree, editor, changes, tasks and side ch",
+  "https://github.com/omdsh-dev/DSH-better-sidebar"
+ ],
+ [
+  "DSH-better-sidebar",
+  "ERR HTTP Error 404: Not Found",
+  "",
+  "",
+  ""
+ ],
+ [
+  "dsh-at-file",
+  "0.6.3",
+  "2026-08-19",
+  "Codex-style @path references for the DeepSeek Harness web GUI: search ",
+  ""
+ ],
+ [
+  "dsh-market",
+  "ERR HTTP Error 404: Not Found",
+  "",
+  "",
+  ""
+ ],
+ [
+  "dshmarket",
+  "1.73.15",
+  "2026-11-07",
+  "Visual plugin market inside DeepSeek Harness — browse, search, and one",
+  "git+https://github.com/dsh-market/dsh-market.git"
+ ],
+ [
+  "simple-email-mcp",
+  "ERR HTTP Error 404: Not Found",
+  "",
+  "",
+  ""
+ ],
+ [
+  "dsh-univer-office",
+  "0.4.0",
+  "2026-11-02",
+  "DSH × Univer integration with a bundled collaboration Gateway and View",
+  "git+https://github.com/dream-num/dsh-univer-office.git"
+ ],
+ [
+  "dsh-excel-chat",
+  "0.43.0",
+  "2026-10-15",
+  "Talk to Excel in DeepSeek Harness: read, edit, clean and report on spr",
+  "git+https://github.com/hccccc01333/dsh-excel-chat.git"
+ ],
+ [
+  "dsh-web-search-free",
+  "1.9.1",
+  "2026-11-01",
+  "Free web search & fetch plugin for DeepSeek Harness (dsh) with multi-e",
+  "git+https://github.com/MochiNek0/dsh-web-search-free.git"
+ ],
+ [
+  "dsh-mcp-lazy",
+  "0.4.1",
+  "2026-10-03",
+  "Lazy MCP gateway for DeepSeek Harness: one stable proxy tool instead o",
+  "git+https://github.com/wings1848/dsh-mcp-lazy.git"
+ ],
+ [
+  "@sutong12/dsh-mcp-lazy",
+  "0.13.0",
+  "2026-10-04",
+  "MCP lazy-loading, dynamic tool-loading, and Tool Router plugin for Dee",
+  "git+https://github.com/wishesl/dsh-mcp-lazy.git"
+ ],
+ [
+  "dsh-llm-opencode-go",
+  "0.2.3",
+  "2026-10-30",
+  "DeepSeek Harness LLM adapter for OpenCode Go (opencode.ai/zen): /model",
+  "git+https://github.com/a2580vb/dsh-llm-opencode-go.git"
+ ],
+ [
+  "dsh-opencode-go-pool",
+  "ERR HTTP Error 404: Not Found",
+  "",
+  "",
+  ""
+ ],
+ [
+  "dsh-harness-pilot",
+  "ERR HTTP Error 404: Not Found",
+  "",
+  "",
+  ""
+ ],
+ [
+  "dsh-agent-preset-router",
+  "ERR HTTP Error 404: Not Found",
+  "",
+  "",
+  ""
+ ],
+ [
+  "dsh-mcp-skill-manager",
+  "0.1.0",
+  "2026-08-30",
+  "MCP & Skills management panel for DeepSeek Harness - manage MCP server",
+  "git+https://github.com/chihy525/dsh-mcp-skill-manager.git"
+ ],
+ [
+  "@deepseek-ai/dsh-skill",
+  "0.0.1-rc.1",
+  "2026-08-10",
+  "Agent skill provider registry for the DeepSeek Harness",
+  "git+https://github.com/deepseek-ai/deepseek-harness.git"
+ ],
+ [
+  "@deepseek-ai/dsh-skill-office",
+  "0.1.6-alpha.2",
+  "2026-09-17",
+  "Bundled Word, PowerPoint, and Excel workflows and structural checks",
+  "git+https://github.com/deepseek-ai/deepseek-harness.git"
+ ]
+]
