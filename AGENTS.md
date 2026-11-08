@@ -101,7 +101,17 @@ CHROME="C:/Program Files/Google/Chrome/Application/chrome.exe"
 - 官方包内：`cordis.patch.yml`、`presets/*.patch.yml`、`@deepseek-ai/dsh-official-bundles` 的 `lib/index.js` 常量。
 - 抓取日期 2026-11-08；数据更新时同步改报告里的日期与「数据来源」卡。
 
-## 10. 不要做
+## 10. 仓库与发布
+
+- 远程：`https://github.com/sogeisetsu/dsh-ecosystem-report`（public，`main` 分支）。
+- GitHub Pages：源 = `main` 根目录 `/`，不使用 Actions。
+  - 入口 <https://sogeisetsu.github.io/dsh-ecosystem-report/> 由根目录 `index.html` 做 0 秒 meta refresh 跳到报告。
+  - 报告直链：`https://sogeisetsu.github.io/dsh-ecosystem-report/deepseek-harness-npm-report.html`。
+  - `.nojekyll` 已提交，跳过 Jekyll 构建。
+- 更新流程：改 `build_v2.py` → 重新生成 → 同步根目录交付件 → `git add -A && git commit -m "..." && git push`；Pages 随 `main` 自动重建，约 30–60 秒。
+- `.gitignore` 已排除：`.workbuddy/`、`research/report.html`、所有图片、`research/meta/`、解包的 `*/package/`、`*.tgz`。
+
+## 11. 不要做
 
 - 不要直接编辑 `deepseek-harness-npm-report.html`。
 - 不要新增分节、目录项或卡片（除非用户明确要求）。
