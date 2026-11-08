@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>@deepseek-ai 官方包调研报告 · DeepSeek Harness</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjQ1NmQ2Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGQ5NDg4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0idXJsKCNnKSIvPjxwYXRoIGQ9Ik0xNiA2LjRsOS42IDQuOUwxNiAxNi4yIDYuNCAxMS4zIDE2IDYuNHoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjk2Ii8+PHBhdGggZD0iTTYuNCAxNi45TDE2IDIxLjhsOS42LTQuOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuNzIiLz48cGF0aCBkPSJNNi40IDIxLjZMMTYgMjYuNWw5LjYtNC45IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIG9wYWNpdHk9Ii40NCIvPjwvc3ZnPg==">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151b23" media="(prefers-color-scheme: dark)">
 <script>(function(){try{
 var m=localStorage.getItem("dsh-theme")||"auto";
 var d=m==="dark"||(m==="auto"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -59,17 +62,28 @@ li{margin:3px 0}
 .hdr{background:var(--panel);border-bottom:1px solid var(--line);padding:34px 0 26px;margin-bottom:0}
 .hdr .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 8px}
-.theme-seg{flex:0 0 auto;display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);
-  border-radius:999px;background:var(--panel2);box-shadow:var(--shadow)}
-.theme-seg button{width:30px;height:24px;padding:0;border:0;border-radius:999px;background:transparent;
-  color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
-  transition:background .18s,color .18s,box-shadow .18s}
-.theme-seg button svg{width:15px;height:15px;display:block}
-.theme-seg button:hover{color:var(--ink);background:var(--panel3)}
-.theme-seg button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
-.theme-seg button[aria-pressed="true"]{background:var(--panel);color:var(--accent);box-shadow:var(--shadow)}
-.theme-seg button[aria-pressed="true"]:hover{background:var(--panel)}
-:root[data-theme="dark"] .theme-seg button[aria-pressed="true"]{background:#313d4c;color:#eaf0ff}
+.theme-picker{position:relative;flex:0 0 auto}
+.theme-btn{width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--ink2);
+  cursor:pointer;box-shadow:var(--shadow);transition:background .15s,color .15s,border-color .15s}
+.theme-btn:hover{background:var(--panel3);color:var(--ink);border-color:var(--line-strong)}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.theme-btn svg{width:16px;height:16px;display:none}
+.theme-btn[data-current="light"] .ic-sun,
+.theme-btn[data-current="dark"] .ic-moon,
+.theme-btn[data-current="auto"] .ic-auto{display:block}
+.theme-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:60;min-width:152px;padding:5px;
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 12px 32px -12px rgba(16,24,40,.45), 0 2px 8px rgba(16,24,40,.08)}
+.theme-menu[hidden]{display:none}
+.theme-menu button{width:100%;display:flex;align-items:center;gap:9px;padding:8px 10px;border:0;border-radius:8px;
+  background:transparent;color:var(--ink2);font:inherit;font-size:13px;line-height:1.2;cursor:pointer;text-align:left}
+.theme-menu button:hover{background:var(--panel2);color:var(--ink)}
+.theme-menu button[aria-checked="true"]{color:var(--accent);font-weight:600}
+.theme-menu button svg{width:15px;height:15px;flex:0 0 auto}
+.theme-menu .chk{margin-left:auto;font-style:normal;font-size:12px;opacity:0;transition:opacity .12s}
+.theme-menu button[aria-checked="true"] .chk{opacity:1}
+:root[data-theme="dark"] .theme-menu{box-shadow:0 14px 36px -12px rgba(0,0,0,.7), 0 2px 8px rgba(0,0,0,.4)}
 .hdr-actions{display:flex;align-items:center;gap:8px}
 .ghbtn{display:inline-flex;align-items:center;gap:6px;font-size:12px;line-height:1;padding:6px 11px;
   border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--ink2);
@@ -410,16 +424,18 @@ code{border-radius:5px}
       <a class="ghbtn" href="https://github.com/sogeisetsu/dsh-ecosystem-report" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看仓库" title="在 GitHub 查看仓库">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span>
       </a>
-      <div class="theme-seg" id="themeSeg" role="group" aria-label="主题模式">
-      <button type="button" data-mode="light" aria-pressed="false" aria-label="亮色主题" title="亮色主题">
-        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M12.8 3.2l-1.1 1.1M4.3 11.7l-1.1 1.1"/></svg>
-      </button>
-      <button type="button" data-mode="dark" aria-pressed="false" aria-label="暗色主题" title="暗色主题">
-        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13.4 9.7A5.8 5.8 0 0 1 6.3 2.6a5.8 5.8 0 1 0 7.1 7.1z"/></svg>
-      </button>
-      <button type="button" data-mode="auto" aria-pressed="true" aria-label="跟随系统" title="跟随系统">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2.6a5.4 5.4 0 0 1 0 10.8z" fill="currentColor"/></svg>
-      </button>
+      <div class="theme-picker" id="themePicker">
+        <button type="button" class="theme-btn" id="themeBtn" data-current="auto"
+                aria-haspopup="menu" aria-expanded="false" aria-label="主题模式：跟随系统" title="主题模式">
+          <svg class="ic-sun" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M12.8 3.2l-1.1 1.1M4.3 11.7l-1.1 1.1"/></svg>
+          <svg class="ic-moon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13.4 9.7A5.8 5.8 0 0 1 6.3 2.6a5.8 5.8 0 1 0 7.1 7.1z"/></svg>
+          <svg class="ic-auto" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2.6a5.4 5.4 0 0 1 0 10.8z" fill="currentColor"/></svg>
+        </button>
+        <div class="theme-menu" id="themeMenu" role="menu" aria-labelledby="themeBtn" hidden>
+          <button type="button" role="menuitemradio" data-mode="auto" aria-checked="true"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2.6a5.4 5.4 0 0 1 0 10.8z" fill="currentColor"/></svg><span>跟随系统</span><i class="chk">✓</i></button>
+          <button type="button" role="menuitemradio" data-mode="light" aria-checked="false"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M12.8 3.2l-1.1 1.1M4.3 11.7l-1.1 1.1"/></svg><span>亮色</span><i class="chk">✓</i></button>
+          <button type="button" role="menuitemradio" data-mode="dark" aria-checked="false"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13.4 9.7A5.8 5.8 0 0 1 6.3 2.6a5.8 5.8 0 1 0 7.1 7.1z"/></svg><span>暗色</span><i class="chk">✓</i></button>
+        </div>
       </div>
     </div>
   </div>
@@ -868,30 +884,42 @@ if(d1) build(d1,{mode:"default",filter:r=>["active","runtime","preset","installe
 const d2=document.getElementById("wrap-all");
 if(d2) build(d2,{mode:"all"});
 
-/* ---------------- 主题：自动 / 亮色 / 暗色（三选一） ---------------- */
+/* ---------------- 主题：单按钮 + 菜单（跟随系统 / 亮色 / 暗色） ---------------- */
 (function(){
   var KEY="dsh-theme";
-  var seg=document.getElementById("themeSeg");
-  var btns=seg?[].slice.call(seg.querySelectorAll("button")):[];
+  var picker=document.getElementById("themePicker");
+  if(!picker)return;
+  var btn=document.getElementById("themeBtn");
+  var menu=document.getElementById("themeMenu");
+  var items=menu?[].slice.call(menu.querySelectorAll("[data-mode]")):[];
   var mq=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null;
   var mode="auto";
   try{mode=localStorage.getItem(KEY)||"auto";}catch(e){}
   if(mode!=="light"&&mode!=="dark")mode="auto";
+  var LABEL={auto:"跟随系统",light:"亮色",dark:"暗色"};
   function paint(){
     var dark=(mode==="dark")||(mode==="auto"&&mq&&mq.matches);
     document.documentElement.setAttribute("data-theme",dark?"dark":"light");
-    btns.forEach(function(b){
-      var on=b.dataset.mode===mode;
-      b.setAttribute("aria-pressed",on?"true":"false");
-      b.classList.toggle("on",on);
-    });
+    btn.setAttribute("data-current",mode);
+    btn.setAttribute("aria-label","主题模式："+LABEL[mode]);
+    items.forEach(function(b){b.setAttribute("aria-checked",b.dataset.mode===mode?"true":"false");});
   }
-  btns.forEach(function(b){
-    b.addEventListener("click",function(){
+  function open(o){
+    menu.hidden=!o;
+    btn.setAttribute("aria-expanded",o?"true":"false");
+  }
+  btn.addEventListener("click",function(e){e.stopPropagation();open(menu.hidden);});
+  items.forEach(function(b){
+    b.addEventListener("click",function(e){
+      e.stopPropagation();
       mode=b.dataset.mode;
-      try{localStorage.setItem(KEY,mode);}catch(e){}
-      paint();
+      try{localStorage.setItem(KEY,mode);}catch(x){}
+      paint();open(false);btn.focus();
     });
+  });
+  document.addEventListener("click",function(e){if(!picker.contains(e.target))open(false);});
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&!menu.hidden){open(false);btn.focus();}
   });
   if(mq){
     var on=function(){if(mode==="auto")paint();};
