@@ -41,7 +41,7 @@ cp ../report.html ../../deepseek-harness-npm-report.html
 2. 默认安装清单：状态明细
 3. 全量分类：分类方法、包清单与筛选
 4. 安装建议：建议的形成方式、一、官方包建议、执行顺序、二、社区包补充建议
-5. 社区与推荐：社区包精选（65 行，可按场景筛选）、包名对照、生态规模参考
+5. 社区与推荐：社区包精选（68 行，可按场景筛选）、包名对照、生态规模参考
 6. 方法与局限：数据来源、未核实项、已知限制
 
 **默认不新增章节**：只在现有分节/卡片内补内容，不加 `<section>`、目录项或新卡片。用户明确要求时除外。
@@ -80,8 +80,8 @@ cp ../report.html ../../deepseek-harness-npm-report.html
 ## 8. 验证清单（每次改完必做）
 
 - 重跑 `build_v2.py`，交付件与 `research/report.html` 逐字节一致。
-- `<section class="sec">` = 6，nav 链接 = 6，卡片 `<h2>` 数不变（当前 15）。
-- 社区包精选 = 65 行；`#sceneSel` 选项 = 13（11 组 + 其他 + 全部）。
+- `<section class="sec">` = 6，nav 链接 = 6，卡片 `<h2>` 数不变（当前 14）。
+- 社区包精选 = 68 行；`#sceneSel` 选项 = 13（11 组 + 其他 + 全部）。
 - headless Chrome 探针：1280 / 768 / 520 三档 `documentElement.scrollWidth == clientWidth`；筛选后可见行数与计数一致；暗色下文字可读。
 
 ### 8.1 探针模板

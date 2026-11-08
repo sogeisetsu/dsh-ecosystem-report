@@ -556,14 +556,15 @@ li{margin:3px 0}
 .hdr-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 8px}
 .theme-seg{flex:0 0 auto;display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);
   border-radius:999px;background:var(--panel2);box-shadow:var(--shadow)}
-.theme-seg button{font:inherit;font-size:12px;line-height:1;padding:5px 10px;border:0;border-radius:999px;
-  background:transparent;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:4px;
-  white-space:nowrap;transition:background .15s,color .15s}
+.theme-seg button{width:30px;height:24px;padding:0;border:0;border-radius:999px;background:transparent;
+  color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+  transition:background .18s,color .18s,box-shadow .18s}
+.theme-seg button svg{width:15px;height:15px;display:block}
 .theme-seg button:hover{color:var(--ink);background:var(--panel3)}
 .theme-seg button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
-.theme-seg button[aria-pressed="true"]{background:var(--panel);color:var(--ink);box-shadow:var(--shadow)}
-.theme-seg .ic{font-size:12.5px;line-height:1;font-style:normal}
-:root[data-theme="dark"] .theme-seg button[aria-pressed="true"]{background:#313d4c;color:#fff}
+.theme-seg button[aria-pressed="true"]{background:var(--panel);color:var(--accent);box-shadow:var(--shadow)}
+.theme-seg button[aria-pressed="true"]:hover{background:var(--panel)}
+:root[data-theme="dark"] .theme-seg button[aria-pressed="true"]{background:#313d4c;color:#eaf0ff}
 .hdr-actions{display:flex;align-items:center;gap:8px}
 .ghbtn{display:inline-flex;align-items:center;gap:6px;font-size:12px;line-height:1;padding:6px 11px;
   border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--ink2);
@@ -1094,9 +1095,15 @@ HTML = f'''<!doctype html>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span>
       </a>
       <div class="theme-seg" id="themeSeg" role="group" aria-label="主题模式">
-      <button type="button" data-mode="auto" aria-pressed="true" title="跟随系统设置"><i class="ic">◐</i><span class="lb">自动</span></button>
-      <button type="button" data-mode="light" aria-pressed="false" title="只用亮色"><i class="ic">☀</i><span class="lb">亮色</span></button>
-      <button type="button" data-mode="dark" aria-pressed="false" title="只用暗色"><i class="ic">☾</i><span class="lb">暗色</span></button>
+      <button type="button" data-mode="light" aria-pressed="false" aria-label="亮色主题" title="亮色主题">
+        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="3.2"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M12.8 3.2l-1.1 1.1M4.3 11.7l-1.1 1.1"/></svg>
+      </button>
+      <button type="button" data-mode="dark" aria-pressed="false" aria-label="暗色主题" title="暗色主题">
+        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13.4 9.7A5.8 5.8 0 0 1 6.3 2.6a5.8 5.8 0 1 0 7.1 7.1z"/></svg>
+      </button>
+      <button type="button" data-mode="auto" aria-pressed="true" aria-label="跟随系统" title="跟随系统">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2.6a5.4 5.4 0 0 1 0 10.8z" fill="currentColor"/></svg>
+      </button>
       </div>
     </div>
   </div>
