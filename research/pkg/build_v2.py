@@ -752,8 +752,6 @@ h2.sec{font-size:16px;margin:26px 2px 10px;color:var(--ink)}
 .stleg .it{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:baseline;font-size:12.5px;color:var(--ink2)}
 .stleg .it .n{font-weight:600;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums}
 @media (max-width:760px){
-  .theme-seg .lb{display:none}
-  .theme-seg button{padding:6px 8px}
   .res-tbl{display:block;table-layout:auto;width:100%}
   .res-tbl thead{display:none}
   .res-tbl tbody,.res-tbl tr{display:block}
