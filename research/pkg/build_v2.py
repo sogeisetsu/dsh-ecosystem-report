@@ -1226,19 +1226,6 @@ HTML = f'''<!doctype html>
 <section class="sec" id="s-advice">
   <h2 class="sec-t">安装建议</h2>
   <p class="sec-d">按当前状态与能力缺口分层，官方包与社区包分列。</p>
-  <div class="card">
-    <h2>建议的形成方式</h2>
-    <p class="lead2">排序依据三项：<b>当前状态成本</b>（已加载的最省事）、<b>能力缺口</b>（官方尚未覆盖的部分）、<b>维护风险</b>（官方包有兼容承诺，社区包没有）。<b>原生短板集中在四处</b>：跨会话记忆缺失、无自动备份、搜索仅内置按量计费的 DeepSeek Search API、无插件市场与渐进披露。<b>选型原则</b>：要功能完整看「推荐」列，只解单点问题走「轻量」列，负担与冲突面更小。</p>
-    <div class="note info" style="margin-top:12px">
-      <b>按状态编号，可执行动作只有四类：</b><br>
-      · <b>1a / 1b / 1c</b> → 已在加载，无需操作；<br>
-      · <b>2a</b> → 插件页开启，包已在磁盘，不会重新下载；<br>
-      · <b>2c</b> → 切换到对应预设（minimal / cordis）或入口（sdk / headless / acp）；<br>
-      · <b>3a / 3b</b> → 插件页「发现 / 更多」安装；<b>社区包</b> → 插件页安装或 <code>npm i</code>。<br>
-      · <b>2b / 3c</b> → 不构成安装选项：2b 由使用方自动加载，3c 装了也不会被加载。
-    </div>
-  </div>
-
   <h2 class="sec">一、官方包建议</h2>
   {tier_html}
 
@@ -1265,20 +1252,20 @@ HTML = f'''<!doctype html>
   <h2 class="sec">二、社区包补充建议</h2>
   <div class="card">
     <p class="lead2">以下为第三方包，<b>不属于官方范畴，无兼容承诺</b>。入选条件：近 7 天有发版、周下载不低于 2 万或星数不低于 900、补足官方未覆盖的能力。</p>
-    <p class="sub" style="margin:0 0 10px">本表是「社区包精选」按门槛筛出的<b>安装决策子集</b>：近 7 天有发版，且周下载不低于 2 万或星数不低于 900，并补足官方未覆盖的能力；额外给出安装优先级。完整资料（推荐值、出处、说明）见「社区与推荐 → 社区包精选」。</p>
+    <p class="sub" style="margin:0 0 10px">本表是「社区包精选」按门槛筛出的<b>安装决策子集</b>：近 7 天有发版，且周下载不低于 2 万或星数不低于 900，并补足官方未覆盖的能力；定位列写明具体补的是哪一处原生短板。完整资料（推荐值、出处、说明）见「社区与推荐 → 社区包精选」。</p>
     <div class="scroll"><table class="mini">
       <thead><tr><th style="width:7%">优先级</th><th style="width:22%">包</th><th style="width:14%">仓库</th><th style="width:11%">版本</th><th style="width:7%" class="c">星</th><th style="width:9%" class="c">周下载</th><th style="width:30%">定位</th></tr></thead>
       <tbody>
-        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>dshmarket</code></td><td data-l="仓库" class="sub">dsh-market/dsh-market</td><td data-l="版本" class="sub">1.73.15</td><td data-l="星" class="c">11k</td><td data-l="周下载" class="c">308,046</td><td data-l="定位">在 UI 内浏览与安装社区插件，其余社区包的前置</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>dsh-context</code></td><td data-l="仓库" class="sub">bowenliang123/dsh-context</td><td data-l="版本" class="sub">0.82.2</td><td data-l="星" class="c">4.5k</td><td data-l="周下载" class="c">144,773</td><td data-l="定位">上下文占用可视化，与官方 compaction 功能存在重叠</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>dsh-better-sidebar</code></td><td data-l="仓库" class="sub">omdsh-dev/DSH-better-sidebar</td><td data-l="版本" class="sub">0.30.1</td><td data-l="星" class="c">5.0k</td><td data-l="周下载" class="c">78,109</td><td data-l="定位">文件树、编辑器、变更整合进侧边栏</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@liustack/modlens</code></td><td data-l="仓库" class="sub">liustack/modlens</td><td data-l="版本" class="sub">3.27.2</td><td data-l="星" class="c">4.8k</td><td data-l="周下载" class="c">86,518</td><td data-l="定位">视觉能力，依赖外部 CLI</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@anionex/dsh-vision-toolkit</code></td><td data-l="仓库" class="sub">Anionex/dsh-vision-toolkit</td><td data-l="版本" class="sub">0.1.49</td><td data-l="星" class="c">931</td><td data-l="周下载" class="c">2,911</td><td data-l="定位">图像问答、OCR、元素定位；与 ModLens 二选一</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-no2">已过时</span></td><td data-l="包"><code>dsh-at-file</code></td><td data-l="仓库" class="sub">FSMargoo/dsh-at-file</td><td data-l="版本" class="sub">0.6.3</td><td data-l="星" class="c">563</td><td data-l="周下载" class="c">41,797</td><td data-l="定位">@路径引用；官方已内置 <code>@file</code> 与 <code>@session</code> 引用，作者也建议新装改用官方实现</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@deepseek-harness-tui/dsh-tui</code></td><td data-l="仓库" class="sub">ccch1mneyyy/dsh-TUI</td><td data-l="版本" class="sub">0.19.0</td><td data-l="星" class="c">7.1k</td><td data-l="周下载" class="c">21,210</td><td data-l="定位">终端 TUI，需 Node 22.19 及以上</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>billion-context</code></td><td data-l="仓库" class="sub">ranxianglei/billion-context</td><td data-l="版本" class="sub">0.1.213</td><td data-l="星" class="c">4.8k</td><td data-l="周下载" class="c">848,207</td><td data-l="定位">按需压缩旧上下文，补内置只有 compaction 的空缺</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>cc-safety-net</code></td><td data-l="仓库" class="sub">kenryu42/cc-safety-net</td><td data-l="版本" class="sub">2.7.5</td><td data-l="星" class="c">2k</td><td data-l="周下载" class="c">47,384</td><td data-l="定位">工具执行前拦截破坏性 Git / 文件命令与敏感文件访问</td></tr>
-        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@michengai/dsh-skills-manager</code></td><td data-l="仓库" class="sub">MichengAI/dsh-skills-manager</td><td data-l="版本" class="sub">1.3.0</td><td data-l="星" class="c">506</td><td data-l="周下载" class="c">50,872</td><td data-l="定位">可视化 Skills 页面、GitHub 安装、预览更新与备份回退</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>dshmarket</code></td><td data-l="仓库" class="sub">dsh-market/dsh-market</td><td data-l="版本" class="sub">1.73.15</td><td data-l="星" class="c">11k</td><td data-l="周下载" class="c">308,046</td><td data-l="定位">补原生无插件市场：提供发现、比较与安装入口</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>dsh-context</code></td><td data-l="仓库" class="sub">bowenliang123/dsh-context</td><td data-l="版本" class="sub">0.82.2</td><td data-l="星" class="c">4.5k</td><td data-l="周下载" class="c">144,773</td><td data-l="定位">补原生上下文不可见：Token 构成、缓存命中与子代理开销可视化</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>dsh-better-sidebar</code></td><td data-l="仓库" class="sub">omdsh-dev/DSH-better-sidebar</td><td data-l="版本" class="sub">0.30.1</td><td data-l="星" class="c">5.0k</td><td data-l="周下载" class="c">78,109</td><td data-l="定位">补原生侧栏只有基础预览：文件树、编辑器、变更与任务整合</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@liustack/modlens</code></td><td data-l="仓库" class="sub">liustack/modlens</td><td data-l="版本" class="sub">3.27.2</td><td data-l="星" class="c">4.8k</td><td data-l="周下载" class="c">86,518</td><td data-l="定位">补原生纯文本无视觉：截图问答与界面元素定位，依赖外部 CLI</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@anionex/dsh-vision-toolkit</code></td><td data-l="仓库" class="sub">Anionex/dsh-vision-toolkit</td><td data-l="版本" class="sub">0.1.49</td><td data-l="星" class="c">931</td><td data-l="周下载" class="c">2,911</td><td data-l="定位">补原生无视觉：OCR 与图像问答；与 ModLens 二选一</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-no2">已过时</span></td><td data-l="包"><code>dsh-at-file</code></td><td data-l="仓库" class="sub">FSMargoo/dsh-at-file</td><td data-l="版本" class="sub">0.6.3</td><td data-l="星" class="c">563</td><td data-l="周下载" class="c">41,797</td><td data-l="定位">原生已内置 <code>@file</code> 与 <code>@session</code> 引用，无需再装；作者也建议新装改用官方实现</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@deepseek-harness-tui/dsh-tui</code></td><td data-l="仓库" class="sub">ccch1mneyyy/dsh-TUI</td><td data-l="版本" class="sub">0.19.0</td><td data-l="星" class="c">7.1k</td><td data-l="周下载" class="c">21,210</td><td data-l="定位">补原生只有 Web 入口：提供全屏终端 TUI，需 Node 22.19 及以上</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>billion-context</code></td><td data-l="仓库" class="sub">ranxianglei/billion-context</td><td data-l="版本" class="sub">0.1.213</td><td data-l="星" class="c">4.8k</td><td data-l="周下载" class="c">848,207</td><td data-l="定位">补原生仅自动 compaction：可按需压缩旧上下文</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-rec">首选</span></td><td data-l="包"><code>cc-safety-net</code></td><td data-l="仓库" class="sub">kenryu42/cc-safety-net</td><td data-l="版本" class="sub">2.7.5</td><td data-l="星" class="c">2k</td><td data-l="周下载" class="c">47,384</td><td data-l="定位">补原生沙箱管不到插件代码：执行前拦截破坏性命令与敏感文件访问</td></tr>
+        <tr><td data-l="优先级"><span class="tag t-scene">可选</span></td><td data-l="包"><code>@michengai/dsh-skills-manager</code></td><td data-l="仓库" class="sub">MichengAI/dsh-skills-manager</td><td data-l="版本" class="sub">1.3.0</td><td data-l="星" class="c">506</td><td data-l="周下载" class="c">50,872</td><td data-l="定位">补原生技能无管理 UI：可视化启停、编辑、安装与备份回退</td></tr>
       </tbody></table></div>
     <p class="sub" style="margin:10px 0 0">星数取自 shields.io 接口，2026-11-08 抓取。DSH 处于 developer preview，社区插件随版本迭代失效属常态。</p>
   </div>
