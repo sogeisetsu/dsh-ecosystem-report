@@ -555,6 +555,14 @@ li{margin:3px 0}
 .theme-seg button[aria-pressed="true"]{background:var(--panel);color:var(--ink);box-shadow:var(--shadow)}
 .theme-seg .ic{font-size:12.5px;line-height:1;font-style:normal}
 :root[data-theme="dark"] .theme-seg button[aria-pressed="true"]{background:#313d4c;color:#fff}
+.hdr-actions{display:flex;align-items:center;gap:8px}
+.ghbtn{display:inline-flex;align-items:center;gap:6px;font-size:12px;line-height:1;padding:6px 11px;
+  border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--ink2);
+  text-decoration:none;box-shadow:var(--shadow);white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s}
+.ghbtn:hover{background:var(--panel3);color:var(--ink);border-color:var(--muted);text-decoration:none}
+.ghbtn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.ghbtn svg{width:15px;height:15px;display:block;fill:currentColor}
 .hdr h1{font-size:27px;line-height:1.3;margin:0 0 12px}
 .hdr .lead{font-size:15.5px;color:var(--ink2);max-width:900px;margin:0 0 16px}
 .meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12.5px;color:var(--muted)}
@@ -790,6 +798,8 @@ footer{border-top:1px solid var(--line);padding:18px 0 40px;color:var(--muted);f
   .hdr{padding:24px 0 18px}
   .hdr h1{font-size:20px}
   .hdr .lead{font-size:14px}
+  .ghbtn span{display:none}
+  .ghbtn{padding:6px 8px}
   .kpis{grid-template-columns:repeat(2,1fr);gap:8px}
   .kpi b{font-size:18px}
   .card{padding:15px 14px}
@@ -1001,10 +1011,15 @@ HTML = f'''<!doctype html>
 <header class="hdr"><div class="wrap">
   <div class="hdr-top">
     <p class="eyebrow">DeepSeek Harness · npm 生态</p>
-    <div class="theme-seg" id="themeSeg" role="group" aria-label="主题模式">
+    <div class="hdr-actions">
+      <a class="ghbtn" href="https://github.com/sogeisetsu/dsh-ecosystem-report" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看仓库" title="在 GitHub 查看仓库">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span>
+      </a>
+      <div class="theme-seg" id="themeSeg" role="group" aria-label="主题模式">
       <button type="button" data-mode="auto" aria-pressed="true" title="跟随系统设置"><i class="ic">◐</i><span class="lb">自动</span></button>
       <button type="button" data-mode="light" aria-pressed="false" title="只用亮色"><i class="ic">☀</i><span class="lb">亮色</span></button>
       <button type="button" data-mode="dark" aria-pressed="false" title="只用暗色"><i class="ic">☾</i><span class="lb">暗色</span></button>
+      </div>
     </div>
   </div>
   <h1>@deepseek-ai 官方包全景调研</h1>
